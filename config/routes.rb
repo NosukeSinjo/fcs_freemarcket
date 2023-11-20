@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
-  root 'home#index'
-  
-  get 'signup', to: 'merchants#new'
-  post 'signup', to: 'merchants#create'
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  post 'top/login'
 
-  get 'payments', to: 'payments#new'
-  post 'payments', to: 'payments#create'
+  get 'top/logout'
+  get 'top/login'
 
-  get 'payments/success', to: 'payments#success'
-  get 'payments/failure', to: 'payments#failure'
+  resources :users
+
+  root 'top#main'
+  get 'top/main'
+  post 'products/index'
+  post 'get_image/:id', to: 'products#get_image'
+  resources :products
 end
