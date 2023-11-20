@@ -1,0 +1,24 @@
+
+<header class="header">
+    <p class="index-header">urukari</p>
+</header>
+<div class='product-show'>
+    <h1 class="product-show-title">商品情報</h1>
+        <table class="product-show-table">
+            <tr>
+                <th class="product-show-item">商品名</th>
+                <td class="product-show-body"><%= @product.title %></td>
+            </tr>
+            <tr>
+                <th class="product-show-item">説明</th>
+                <td class="product-show-body"><%= @product.description %></td>
+            </tr>
+        </table>
+    <p>
+    <%= link_to "購入", new_order_path(product_id: @product.id) %>
+    
+    <%= link_to "戻る", '/products' %>
+    </p>
+    <br>
+    
+</div>

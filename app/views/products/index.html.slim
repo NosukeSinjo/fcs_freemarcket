@@ -1,0 +1,40 @@
+h1 商品
+
+.card
+    .card-body
+        h5.card-title
+            | こんにちは
+        p.card-text
+            | こんばんは
+
+
+            <header class="header">
+            <p class="index-header">urukari</p>
+            <p class="index-header-lnk">
+                <%= link_to "新商品追加", new_product_path %>
+            
+                <%= link_to "ユーザー情報を見る", '/users/:id' %>
+            </p>
+        </header>
+        <br>
+        <div class="index">
+            <% @products.each do |f| %>
+                <%= image_tag "/get_image/#{f.id}" %>
+                <br>
+                <div class="index-infomation">
+                    <%= f.title %>
+                    <%= f.price %>円
+                </div>
+                <br>
+                <div class="index-edit">
+                    <%= link_to '削除', product_path(f.id), method: :delete %>
+                    <%= link_to '商品詳細', product_path(f.id) %>
+                </div>
+                <% if @flag == true then %>
+                <p>
+                    Sold Out<br>
+                </p>
+                <% end %>
+            <% end %>
+            
+        </div>
