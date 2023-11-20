@@ -1,18 +1,15 @@
-create_table 'merchants', comment: '加盟店' do |t|
-  t.string :merchant_name, null: false, comment: '加盟店名'
-
+create_table 'users', comment: 'ユーザー' do |t|
+  t.string :name, null: false, comment: 'ユーザー'
+  t.datetime :created_at, null: false
   t.timestamps null: false
-
-  t.index :merchant_name, unique: true
 end
 
-create_table 'transactions', comment: '電文' do |t|
-  t.string :did, null: false
-
-  t.string :aquirer_id, null: false
-
-  t.integer :amount, null: false
-
-  t.datetime :transactiont_time, null: false
+create_table 'products', comment: '商品' do |t|
+  t.string :title, null: false, comment: '商品名'
+  t.string :description, null: true
+  t.unsigned_integer :price, null: false
+  t.binary :image, null: false
+  t.integer :user_id
+  t.datetime :purchased_at, null: true
+  t.timestamps null: false
 end
-
