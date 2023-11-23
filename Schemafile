@@ -1,5 +1,5 @@
 create_table 'users', comment: 'ユーザー' do |t|
-  t.string :name, null: false, comment: 'ユーザー'
+  t.string :user_name, null: false
   t.datetime :created_at, null: false
   t.timestamps null: false
 end
@@ -12,4 +12,8 @@ create_table 'products', comment: '商品' do |t|
   t.integer :user_id
   t.datetime :purchased_at, null: true
   t.timestamps null: false
+end
+
+create_table 'orders', comment: '購入遷移画面' do |t|
+  t.integer :product_id
 end
