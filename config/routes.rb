@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'top#main'
   get 'top/main'
   post 'products/index'
-  post 'get_image/:id', to: 'products#get_image'
+  get 'get_image/:id', to: 'products#get_image'
   resources :products
+  resources :orders
 end
