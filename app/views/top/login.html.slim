@@ -1,9 +1,6 @@
-
-            
-
 = form_tag '/top/login' , method: :post do
-    = label_tag :name, '名前'
-    = text_field_tag :name
+    = label_tag :user_name, '名前'
+    = text_field_tag :user_name
     .submit
         = submit_tag 'ログイン'
     .new_user
