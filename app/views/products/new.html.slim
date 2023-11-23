@@ -1,7 +1,8 @@
-| 商品追加 
+h3 商品追加
+
 = form_for @product, action: :create do |f|
-  = f.label :product_name, '名前'
-  = f.text_field :product_name
+  = f.label :title, '名前'
+  = f.text_field :title
   = f.label :price, '値段'
   = f.text_field :price
   = f.label :description, '説明'
@@ -10,39 +11,4 @@
   = f.file_field :image
   = f.submit "登録", class:'submit-button'
 
-
-<header class="header">
-    <p class="index-header">urukari</p>
-</header>
-<div class='new'>
-  <h1 class='new-title'>商品追加</h1>
-  <%= form_for @product, action: :create do |f| %>
-  <table class="new-table">
-    <tr>
-      <th class='new-item'><%= f.label :title, '名前' %></th>
-      <td class='new-body'><%= f.text_field :title %></td>
-    </tr>
-    <tr>
-      <th class='new-item'><%= f.label :price, '値段' %></th>
-      <td class='new-body'><%= f.text_field :price %></td>
-    </tr>
-    <tr>
-      <th class='new-item'><%= f.label :description, '説明' %></th>
-      <td class='new-body'><%= f.text_field :description %></td>
-    </tr>
-    <tr>
-      <th class='new-item'><%= f.label :image, '画像' %></th>
-      <td class='new-body'><%= f.file_field :image %></td>
-    </tr>
-  
-  </table>
-  
-    <div class='new-submit'><%= f.submit "登録", class: 'submit-button' %></div>
-  
-  <% end %>
-  </br>
-  <div class='product-new-back'>
-    <%= link_to '戻る' , "/products" %>
-  </div>
-  
-</div>
+= link_to '戻る' , "/products"
