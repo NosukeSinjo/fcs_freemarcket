@@ -8,9 +8,9 @@ class TopController < ApplicationController
     end
     
     def login
-        user = User.find_by(name: params[:user][:name])
+        user = User.find_by(user_name: params[:user_name])
         if user
-            session[:name] = user.name
+            session[:name] = user.user_name
             redirect_to products_path
         else
             render "login"
