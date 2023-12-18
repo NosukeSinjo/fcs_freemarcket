@@ -1,14 +1,15 @@
 h1 商品情報
 
-.card
-    .card-body
-        h2.card-title
-        商品名
-            = @product.title
-        p.card-text
-        説明
-            = @product.description
-
+.col-md-3
+    .card.my-3
+        = image_tag "/get_image/#{@product.id}", height: 300
+        .card-body
+            h5.card-title
+                = @product.title
+            p.card-text
+                = @product.description
+            .card-text
+               = @product.price
 = link_to "購入", '/orders'
 
 = link_to "戻る", '/products'
