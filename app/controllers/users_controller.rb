@@ -8,13 +8,13 @@ class UsersController < ApplicationController
         @user = User.new(user_name: params[:user][:user_name])
         if @user.save!
             flash[:notice] = "登録が完了しました"
-            redirect_to top_login_path
+            redirect_to "/"
         else
             render new_user_path
         end
     end
-    
+
     def show
-        @user = current_user
+        @user = User.find(params[:id])
     end
 end
