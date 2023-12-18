@@ -3,16 +3,15 @@ class ProductsController < ApplicationController
         @products = Product.all
     end
 
-    #???のところにmerchantの情報を入れるはずだけど何を入れたらいいのかわからない
     def new
-        @product = ???.products.new
+        @product = current_merchant.products.new
     end
 
     def create
-        @product = ???.products.new(product_params)
+        @product = current_merchant.products.new(product_params)
         if @product.save!
             flash[:success] = "商品を追加しました。"
-            redirect_to merchant_path(@merchant.id)
+            redirect_to merchant_path(current_merchant)
         end
     end
 
@@ -28,12 +27,11 @@ class ProductsController < ApplicationController
 
     def get_image
         product = Product.find(params[:id])
-        send_data product.image, disposition: :inline, type: 'product/png'
+        send_data product.image.read, disposition: :inline, type: 'png'
     end
 
     private
     def product_params
-        image = params[:product][:image].read
         params.require(:product).permit(:merchant_id, :title, :price, :description, :image)
     end
 end
