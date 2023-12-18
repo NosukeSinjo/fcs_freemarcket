@@ -1,0 +1,29 @@
+
+h3 商品一覧
+- unless merchant_logged_in?
+    .row
+        = link_to "新商品追加", new_product_path
+
+.col
+    h5.mt-3
+        = @merchant.merchant_name
+        | のお店の商品
+    - if @products.empty?
+        | なし
+    -@products.each_slice(4) do |slice_products|
+        .row
+            - slice_products.each do |product|
+                .col-md-3
+                    .card.my-3
+                        = image_tag "/get_image/#{product.id}.png", height: 200, style: "object-fit: cover"
+                        .card-body
+                            h5.card-title
+                                = product.title
+                            p.card-text
+                                = product.description.truncate(35)
+                            .card-text
+                                = product.price
+                            - if product.purchased_at.nil?
+                                = link_to '購入', product_path(product.id)
+
+= button_to 'Log out', logout_path, method: :delete

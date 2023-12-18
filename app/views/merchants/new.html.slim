@@ -1,0 +1,6 @@
+h1 新規登録
+= form_for @merchant, action: :create do |t|
+  .form-group
+    = t.label :merchant_name, '名前'
+    = t.text_field :merchant_name
+  = t.submit '登録'
