@@ -1,19 +1,26 @@
 create_table 'users', comment: 'ユーザー' do |t|
-  t.string :user_name, null: false
+  t.string :user_name, unique:true, null: false
   t.datetime :created_at, null: false
   t.timestamps null: false
 end
 
 create_table 'products', comment: '商品' do |t|
+  t.references :merchant, null: false, foreign_key: { to_table: :merchants }
   t.string :title, null: false, comment: '商品名'
   t.string :description, null: true
   t.unsigned_integer :price, null: false
   t.binary :image, null: false
-  t.integer :user_id
   t.datetime :purchased_at, null: true
   t.timestamps null: false
 end
 
 create_table 'orders', comment: '購入遷移画面' do |t|
-  t.integer :product_id
+
+end
+
+create_table 'merchants', comment: 'お店' do |t|
+  t.string :merchant_name, unique:true, null: false
+  t.datetime :created_at, null: false
+  t.datetime :updated_at, null: false
+  t.timestamps null: false
 end
