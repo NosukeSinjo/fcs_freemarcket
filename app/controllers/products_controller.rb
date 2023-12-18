@@ -3,12 +3,13 @@ class ProductsController < ApplicationController
         @products = Product.all
     end
 
+    #???のところにmerchantの情報を入れるはずだけど何を入れたらいいのかわからない
     def new
-        @product = ????.merchant.products.new
+        @product = ???.products.new
     end
 
     def create
-        @product = ????.products.new(product_params)
+        @product = ???.products.new(product_params)
         if @product.save!
             flash[:success] = "商品を追加しました。"
             redirect_to merchant_path(@merchant.id)
