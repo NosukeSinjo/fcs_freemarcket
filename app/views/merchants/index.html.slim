@@ -1,0 +1,16 @@
+
+h1 お店一覧
+
+-@merchants.each_slice(4) do |slice_merchants|
+    .row
+        - slice_merchants.each do |merchant|
+            .col-md-3
+                .card.my-3
+                    .card-body
+                        h5.card-title
+                            = merchant.merchant_name
+                        .card-text
+                            = link_to 'このお店に入る', merchant_path(merchant.id)
+
+.logout
+    = button_to 'Log out', logout_path, method: :delete
