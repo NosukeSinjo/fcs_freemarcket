@@ -7,7 +7,7 @@ h1 商品
         - slice_products.each do |product|
             .col-md-3
                 .card.my-3
-                    = image_tag "/get_image/#{product.id}", height: 200, style: "object-fit: cover"
+                    = image_tag product.image, height: 200, style: "object-fit: cover"
                     .card-body
                         h5.card-title
                             = product.title
