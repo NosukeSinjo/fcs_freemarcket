@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
-  post 'top/login'
 
-  get 'signup', to: 'merchants#new'
-  post 'signup', to: 'merchants#create'
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
-  
 
+  get 'merchantlogin', to: 'merchantsessions#new'
+  post 'merchantlogin', to: 'merchantsessions#create'
+  delete 'logout', to: 'merchantsessions#destroy'
+
+  get 'userlogin', to: 'usersessions#new'
+  post 'userlogin', to: 'usersessions#create'
+  delete 'logout', to: 'usersessions#destroy'
 
   resources :merchants
   resources :users
   resources :products
   
   root 'top#main'
-  get 'top/main'
   
   get 'get_image/:id', to: 'products#get_image'
   
