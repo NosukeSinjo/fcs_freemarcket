@@ -10,7 +10,7 @@ class MerchantsController < ApplicationController
         @merchant = Merchant.new(merchant_name: params[:merchant][:merchant_name])
         if @merchant.save!
             flash[:notice] = "登録が完了しました"
-            redirect_to "/login"
+            redirect_to "/merchantlogin"
         else
             render new_merchant_path
         end
