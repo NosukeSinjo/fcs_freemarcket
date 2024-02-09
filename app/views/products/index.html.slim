@@ -16,4 +16,5 @@ h1 商品
                         .card-text
                             = product.price
                         - if product.purchased_at.nil?
-                            = link_to '購入', product_path(product.id)
+                            = link_to '購入', "/orders/progress", class: 'btn btn-block btn-outline-primary btn-sm'
+

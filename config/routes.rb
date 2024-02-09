@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   resources :merchants
   resources :users
   resources :products
-  
+
+  get '/orders/progress', to: 'orders#progress'
+
+  get '/orders/complete', to: 'orders#complete'
+
   root 'top#main'
   
   get 'get_image/:id', to: 'products#get_image'

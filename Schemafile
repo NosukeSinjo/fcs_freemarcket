@@ -19,7 +19,9 @@ end
 
 create_table 'merchants', comment: 'お店' do |t|
   t.string :merchant_name, unique:true, null: false
+  t.string :seller, null: false
   t.datetime :created_at, null: false
   t.datetime :updated_at, null: false
   t.timestamps null: false
 end
+

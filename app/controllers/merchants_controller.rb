@@ -7,7 +7,7 @@ class MerchantsController < ApplicationController
     end
     
     def create
-        @merchant = Merchant.new(merchant_name: params[:merchant][:merchant_name])
+        @merchant = Merchant.new(merchant_params)
         if @merchant.save!
             flash[:notice] = "登録が完了しました"
             redirect_to "/merchantlogin"
@@ -19,5 +19,10 @@ class MerchantsController < ApplicationController
     def show
         @merchant = Merchant.find(params[:id])
         @products = @merchant.products
+    end
+
+    private
+    def merchant_params
+        params.require(:merchant).permit(:merchant_name, :seller)
     end
 end

@@ -1,2 +1,10 @@
 自分の情報
-= user.username
+.col-md-3
+    .card.my-3
+        .card-body
+            h5.card-title
+                名前
+                = @user.user_name
+= link_to 'お店を探す', '/merchants', class: 'btn btn-block btn-outline-primary btn-sm'
+
+= button_to 'Log out', logout_path, method: :delete
